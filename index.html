@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Over</title>
+  <style>
+    @font-face {
+      font-family: 'Game Boy';
+      src: url('gameboy.woff2') format('woff2');
+    }
+
+    @font-face {
+      font-family: 'Nightmare';
+      src: url('nightmare.ttf') format('truetype');
+    }
+
+    body {
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+      background-color: black;
+      color: white;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+    }
+
+    h1 {
+      font-family: 'Game Boy';
+      font-size: 3.6em;
+      margin-bottom: 2em;
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+    }
+
+    h2 {
+      font-family: 'Nightmare';
+      font-size: 11em;
+      margin-bottom: 2em;
+      opacity: 0;
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+transition: 4s ease-in-out;
+    }
+
+    #continue {
+  white-space: nowrap;
+      background-color: black;
+      font-family: 'Game Boy';
+      border: none;
+      color: white;
+      cursor: pointer;
+      font-size: 1.2em;
+            position: absolute;
+            top: 90%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+    }
+
+  </style>
+</head>
+<body>
+  <h1>GAME OVER</h1>
+  <h2 id="gameOverNightmare" style="font-family: 'Nightmare', serif">GAME OVER</h2>
+  <button id="continue">CONTINUE 9</button>
+
+  <script>
+    const continueButton = document.getElementById('continue');
+    const gameOverNormal = document.querySelector('h1');
+    const gameOverNightmare = document.getElementById('gameOverNightmare');
+
+    let countdown = 9;
+
+    function updateButton() {
+      continueButton.textContent = `CONTINUE ${countdown}`;
+    }
+
+    function handleCountdown() {
+      countdown--;
+
+      if (countdown === 0) {
+        gameOverNormal.style.opacity = 0;
+        gameOverNormal.style.transition = "opacity 1.1s ease-in-out";
+
+        continueButton.style.opacity = 0;
+        continueButton.style.transition = "opacity 1.1s ease-in-out";
+
+        gameOverNightmare.style.opacity = 0.7;
+        gameOverNightmare.style.transition = "opacity 6.66s ease-in-out";
+        localStorage.clear();
+      } else if (countdown > 0) {
+        updateButton();
+      }
+    }
+
+    const intervalId = setInterval(handleCountdown, 3333);
+
+    gameOverNightmare.addEventListener('click', () => {
+      window.location.reload();
+    });
+
+    continueButton.addEventListener('click', () => {
+      window.parent.postMessage('LIFE1', '*');
+    });
+
+  </script>
+</body>
+</html>
