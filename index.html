@@ -32,6 +32,7 @@
 
     h1 {
       font-family: 'Game Boy';
+        font-display: optional;
       font-size: 3.6em;
       margin-bottom: 2em;
             position: absolute;
@@ -43,6 +44,7 @@
 
     h2 {
       font-family: 'Nightmare';
+        font-display: optional;
       font-size: 11em;
       margin-bottom: 2em;
       opacity: 0;
@@ -58,6 +60,7 @@ transition: 4s ease-in-out;
   white-space: nowrap;
       background-color: black;
       font-family: 'Game Boy';
+        font-display: optional;
       border: none;
       color: white;
       cursor: pointer;
@@ -114,7 +117,6 @@ transition: 4s ease-in-out;
     continueButton.addEventListener('click', () => {
       window.parent.postMessage('LIFE1', '*');
     });
-
   </script>
 </body>
 </html>
