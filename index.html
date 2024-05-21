@@ -114,7 +114,11 @@ transition: 4s ease-in-out;
 
     gameOverNightmare.addEventListener('click', () => {
     });
-
+    
+    gameOverNormal.addEventListener('click', () => {
+        window.location.reload();
+    });    
+    
     continueButton.addEventListener('click', () => {
       window.parent.postMessage('LIFE1', '*');
     });
