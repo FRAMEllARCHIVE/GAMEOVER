@@ -39,7 +39,7 @@
             top: 40%;
             left: 50%;
             transform: translate(-50%, -50%);
-            z-index: 1;
+            z-index: 2;
     }
 
     h2 {
@@ -53,7 +53,7 @@
             top: 30%;
             left: 50%;
             transform: translate(-50%, -50%);
-            z-index: 3;
+            z-index: 1;
     }
 
     #continue {
@@ -69,7 +69,6 @@
             top: 90%;
             left: 50%;
             transform: translate(-50%, -50%);
-            z-index: 1;
     }
 
   </style>
@@ -111,15 +110,19 @@
     const intervalId = setInterval(handleCountdown, 3333);
 
     gameOverNightmare.addEventListener('click', () => {
+  console.log("Button Clicked!");
     });
     
     gameOverNormal.addEventListener('click', () => {
-      countdown--;
-      updateButton();
+        handleCountdown();
+        updateButton();
+        console.log("Button Clicked!");
     });    
     
     continueButton.addEventListener('click', () => {
+  console.log("Button Clicked!");
       window.parent.postMessage('LIFE1', '*');
+      window.parent.postMessage('CONTINUE', '*');
     });
   </script>
 </body>
