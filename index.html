@@ -44,7 +44,7 @@
 
     h2 {
       background-color: black;
-      font-family: 'Nightmare';
+      font-family: 'Nightmare', Arial, sans-serif;
       font-display: swap;
       font-size: 11.1em;
       margin-bottom: 1em;
@@ -59,7 +59,7 @@
     #continue {
   white-space: nowrap;
       background-color: black;
-      font-family: 'Game Boy';
+      font-family: 'Game Boy', Arial, sans-serif;
         font-display: optional;
       border: none;
       color: white;
@@ -114,7 +114,8 @@
     });
     
     gameOverNormal.addEventListener('click', () => {
-        window.location.reload();
+      countdown--;
+      updateButton();
     });    
     
     continueButton.addEventListener('click', () => {
