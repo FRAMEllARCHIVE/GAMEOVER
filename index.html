@@ -110,17 +110,14 @@
     const intervalId = setInterval(handleCountdown, 3333);
 
     gameOverNightmare.addEventListener('click', () => {
-  console.log("Button Clicked!");
     });
     
     gameOverNormal.addEventListener('click', () => {
         handleCountdown();
         updateButton();
-        console.log("Button Clicked!");
     });    
     
     continueButton.addEventListener('click', () => {
-  console.log("Button Clicked!");
       window.parent.postMessage('LIFE1', '*');
       window.parent.postMessage('CONTINUE', '*');
     });
